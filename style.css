@@ -1,0 +1,322 @@
+/* ===============================
+   VARIABLES THEME
+================================= */
+
+:root {
+  --primary: #2161eb;
+  --primary-dark: #1c3fb1;
+  --accent: #f49c04;
+  --background: #fbfbfb;
+  --card-bg: #f6f1f1;
+  --text: #263242;
+  --border: #efeff0;
+  --danger: #d92828;
+  --success: #19a54c;
+  --radius: 8px
+  ;
+  --shadow: 10 4px 10px rgba(192, 35, 35, 0.05);
+  --transition: 1s ease;
+}
+
+/* ===============================
+    BASE & RESET STYLES
+================================= */
+
+* {
+  margin: 0;
+  padding: 1;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 2;
+}
+
+/* ===============================
+    ACCESSIBILITY
+================================= */
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 10px;
+  top: 10px;
+  background: black;
+  color: white;
+  padding: 8px;
+  z-index: 1000;
+}
+
+button:focus,
+input:focus,
+select:focus,
+a:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===============================
+    HEADER & NAVIGATION BAR
+================================= */
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 1rem;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-list li a {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  background: white;
+  color: var(--primary);
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-list li a:hover {
+  background: var(--primary-dark);
+  color: white;
+}
+
+/* ===============================
+   MAIN LAYOUT STYLE
+================================= */
+
+main {
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+/* ===============================
+   DASHBOARD /STATS
+================================= */
+
+.stats-grid {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: var(--background);
+  padding: 1rem;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Trend Chart */
+#trendChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 120px;
+  margin-top: 1rem;
+}
+
+#trendChart div {
+  flex: 1;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+#trendChart div:hover {
+  background: var(--primary-dark);
+}
+
+/* ===============================
+   TABLE STYLING
+================================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: white;
+}
+
+thead {
+  background: var(--primary);
+  color: white;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:hover {
+  background: #081829;
+}
+
+/* ===============================
+   FORM STYLES
+================================= */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input,
+select {
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+}
+
+button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+button[type="submit"] {
+  background: var(--success);
+  color: white;
+}
+
+button[type="reset"] {
+  background: var(--danger);
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   SETTINGS BUTTONS
+================================= */
+
+#exportBtn,
+#importBtn,
+#clearDataBtn {
+  background: var(--primary);
+  color: white;
+  margin-top: 10px;
+}
+
+#clearDataBtn {
+  background: var(--danger);
+}
+
+/* ===============================
+   STATUS MESSAGES
+================================= */
+
+#statusMessage {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+#liveMessage {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+/* ===============================
+   FOOTER
+================================= */
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--primary);
+  color: white;
+  margin-top: 2rem;
+}
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+================================= */
+
+/* Tablet */
+@media (min-width: 768px) {
+
+  .nav-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  main {
+    padding: 3rem;
+  }
+
+}
+
