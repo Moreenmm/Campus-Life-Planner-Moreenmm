@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Life Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============= Link CSS ================ -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <h1>Campus Life Planner</h1>
+    <nav>
+    <ul class="nav-list">
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#records">Records</a></li>
+        <li><a href="#add">Add Task</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <!-- ================= MAIN ================= -->
+  <main id="main-content">
+
+    <!-- ===== DASHBOARD SECTION ===== -->
+    <section id="dashboard">
+      <h2>Dashboard / Statistics</h2>
+
+      <div>
+        <p>Total Records: <span id="totalRecords">0</span></p>
+        <p>Total Duration (Hours): <span id="totalDuration">0</span></p>
+        <p>Top Tag: <span id="topTag">None</span></p>
+      </div>
+
+      <!-- Weekly Cap -->
+      <h3>Weekly Target</h3>
+      <label for="weeklyCap">Set Weekly Hour Target:</label>
+      <input type="number" id="weeklyCap" min="1">
+
+      <!-- ARIA live message -->
+      <div id="liveMessage" aria-live="polite"></div>
+    </section>
+
+    <!-- ===== RECORDS SECTION ===== -->
+    <section id="records">
+      <h2>Tasks & Events</h2>
+
+      <!-- Search -->
+      <label for="searchInput">Search (Regex Supported):</label>
+      <input type="text" id="searchInput" placeholder="Search title, tag, date">
+
+      <!-- Table -->
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Duration</th>
+            <th>Tag</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="recordsTableBody">
+          <!-- All the Records will appear here -->
+        </tbody>
+      </table>
+
+      <!-- Status message -->
+      <div role="status" id="statusMessage"></div>
+    </section>
+
+    <!-- ============= ADD TASK SECTION ============== -->
+    <section id="add">
+      <h2>Add / Edit Task</h2>
+
+      <form id="taskForm">
+
+        <!-- Title -->
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" required><br><br>
+
+        <!-- Date -->
+        <label for="date">Date (YYYY-MM-DD):</label><br>
+        <input type="date" id="date" required><br><br>
+
+        <!-- Duration -->
+        <label for="duration">Duration (Hours):</label><br>
+        <input type="number" id="duration" step="0.1" min="0"><br><br>
+
+        <!-- Tag -->
+        <label for="tag">Tag (letters, spaces, hyphens only):</label><br>
+        <input type="text" id="tag"
+               pattern="[A-Za-z\s-]+"
+               title="Letters, spaces and hyphens only"><br><br>
+
+        <!-- Status -->
+        <label for="status">Status:</label><br>
+        <select id="status">
+          <option value="upcoming">Upcoming</option>
+          <option value="completed">Completed</option>
+        </select><br><br>
+
+        <button type="submit">Save Task</button>
+        <button type="reset">Clear</button>
+
+        <!-- Error message -->
+        <p id="formError" role="alert"></p>
+
+      </form>
+    </section>
+
+    <!-- ============== SETTINGS SECTION ============= -->
+    <section id="settings">
+      <h2>Settings</h2>
+
+      <!-- Units -->
+      <h3>Time Unit</h3>
+      <label>
+        <input type="radio" name="unit" value="hours" checked>
+        Hours
+      </label>
+      <hr>
+
+      <!-- Importing / Exporting Data -->
+      <h3>Data Management</h3>
+      <button id="exportBtn">Export JSON</button>
+      <button id="importBtn">Import JSON</button>
+      <input type="file" id="importFile" accept=".json" hidden>
+
+      <br><br>
+
+      <!-- Clearing data -->
+      <button id="clearDataBtn">Clear All Data</button>
+    </section>
+    
+    <!-- ========== ABOUT SECTION =========== -->
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        This Campus Life Planner helps students manage tasks, events,
+        study sessions, and activities smoothly. It's very effective for time management.
+      </p>
+
+      <p>
+        Created by: Moreen Muthoni <br>
+        GitHub: <a href="https://github.com/Moreenmm/Campus-Life-Planner_Moreenmm">https://github.com/Moreenmm/Campus-Life-Planner_Moreenmm</a> <br>
+        Email: <a href="mailto:m.murugi@alustudent.com">m.murugi@alustudent.com</a> 
+      </p>
+    </section>
+
+  </main>
+</body>
+  <!-- ================= FOOTER ================= -->
+<footer>
+    <p>&COPY 2026 Campus Life Planner</p>
+</footer>
+
+  <!-- =========== Link JS=============== -->
+  <script src="script.js"></script>
+
+</html>
+
